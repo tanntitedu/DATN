@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 25, 2014 2:34:06 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.entity.Exams" table="exams" catalog="d_a">
+        <id name="examsId" type="int">
+            <column name="examsID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="quiz" class="model.entity.Quiz" fetch="select">
+            <column name="quizID" />
+        </many-to-one>
+        <many-to-one name="user" class="model.entity.User" fetch="select">
+            <column name="userID" />
+        </many-to-one>
+        <property name="points" type="java.lang.Float">
+            <column name="points" precision="12" scale="0" />
+        </property>
+        <set name="examsDetailses" table="exams_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="examsID" not-null="true" />
+            </key>
+            <one-to-many class="model.entity.ExamsDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

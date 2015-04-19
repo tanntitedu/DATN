@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 25, 2014 2:34:06 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.entity.ExamsDetails" table="exams_details" catalog="d_a">
+        <composite-id name="id" class="model.entity.ExamsDetailsId">
+            <key-property name="examsId" type="int">
+                <column name="examsID" />
+            </key-property>
+            <key-property name="questionsId" type="int">
+                <column name="questionsID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="exams" class="model.entity.Exams" update="false" insert="false" fetch="select">
+            <column name="examsID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="questions" class="model.entity.Questions" update="false" insert="false" fetch="select">
+            <column name="questionsID" not-null="true" />
+        </many-to-one>
+        <property name="answer" type="string">
+            <column name="answer" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>
