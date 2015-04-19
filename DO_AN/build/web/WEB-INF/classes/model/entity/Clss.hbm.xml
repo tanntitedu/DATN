@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 25, 2014 2:34:06 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.entity.Clss" table="clss" catalog="d_a">
+        <id name="clssId" type="java.lang.Integer">
+            <column name="clssId" />
+            <generator class="identity" />
+        </id>
+        <property name="clssname" type="string">
+            <column name="clssname" length="50" />
+        </property>
+        <property name="yearStart" type="java.lang.Integer">
+            <column name="yearStart" />
+        </property>
+        <property name="yearfinish" type="java.lang.Integer">
+            <column name="yearfinish" />
+        </property>
+        <property name="notes" type="string">
+            <column name="notes" length="65535" />
+        </property>
+        <property name="actived" type="java.lang.Boolean">
+            <column name="actived" />
+        </property>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="clssID" />
+            </key>
+            <one-to-many class="model.entity.User" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 23, 2014 7:47:51 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Controller.filter.Quiz" table="quiz" catalog="d_a">
+        <id name="quizId" type="int">
+            <column name="quizID" />
+            <generator class="assigned"></generator>
+        </id>
+        <many-to-one name="disciplines" class="Controller.filter.Disciplines" fetch="select">
+            <column name="disciplinesID" />
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content" length="65535" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="active" />
+        </property>
+        <property name="isview" type="java.lang.Boolean">
+            <column name="isview" />
+        </property>
+        <set name="examsDetailses" table="exams_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="quizID" not-null="true" />
+            </key>
+            <one-to-many class="Controller.filter.ExamsDetails" />
+        </set>
+        <set name="questionses" table="questions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="quizID" />
+            </key>
+            <one-to-many class="Controller.filter.Questions" />
+        </set>
+    </class>
+</hibernate-mapping>
