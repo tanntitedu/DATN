@@ -279,7 +279,7 @@ public class ExamsManager extends HttpServlet {
         Disciplines discip = DD.get(discipID);
         System.out.println(content);
         
-        Quiz q = new Quiz(4, discip, content, active, isview, null, null);
+        Quiz q = new Quiz(4, discip, content, active, isview, 1, 1);
         if (QD.insertQuiz(q)) {
             List<Quiz> qList = QD.listQuiz();
             request.setAttribute(util.Constants.Q_LIST, qList);

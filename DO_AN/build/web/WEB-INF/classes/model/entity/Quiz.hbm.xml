@@ -20,6 +20,12 @@
         <property name="isview" type="java.lang.Boolean">
             <column name="isview" />
         </property>
+        <property name="time" type="int">
+            <column name="time" />
+        </property>
+        <property name="totalques" type="int">
+            <column name="total_ques" />
+        </property>
         <set name="examses" table="exams" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="quizID" />

@@ -5,6 +5,12 @@
     <class>model.entity.ClassLop</class>
     <class>model.entity.Monhoc</class>
     <class>model.entity.User</class>
+    <class>model.entity.Disciplines</class>
+    <class>model.entity.Questions</class>
+    <class>model.entity.Role</class>
+    <class>model.entity.Clss</class>
+    <class>model.entity.Exams</class>
+    <class>model.entity.Quiz</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tracnghiem?zeroDateTimeBehavior=convertToNull"/>

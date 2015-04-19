@@ -9,6 +9,16 @@
         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="../media/css/jquery.dataTables.css">	
         <style type="text/css" class="init">
+            hr.style-one {
+    border: 0;
+    width: 90%;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+}
         </style>
         <script type="text/javascript" language="javascript" src="../media/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="../media/js/jquery.dataTables.js"></script>	
@@ -25,16 +35,15 @@
                     <c:forEach items="${qtList}" var="dpList" varStatus="stt">
                         <p><b>Câu: ${stt.count}</b> ${dpList.getContent()}.</p>
                         <div class="col-lg-12">
-                            <div class="col-lg-6" style="margin-bottom: 5px">A:  <input type="radio" name="${stt.count}" value="${dpList.getChooseA()}">${dpList.getChooseA()}</div>
-                            <div class="col-lg-6" style="margin-bottom: 5px">B:  <input type="radio" name="${stt.count}" value="${dpList.getChooseB()}">${dpList.getChooseB()}</div>
-                            <div class="col-lg-6" style="margin-bottom: 5px">C:  <input type="radio" name="${stt.count}" value="${dpList.getChooseC()}">${dpList.getChooseC()}</div>
-                            <div class="col-lg-6" style="margin-bottom: 5px">D:  <input type="radio" name="${stt.count}" value="${dpList.getChooseD()}">${dpList.getChooseD()}</div>
-                        </div>
-                        <br>
-                        <br>
-                        <input type="hidden" name="${stt.count}.id" value="${dpList.getQuestionsId()}" >
-                        <input type="hidden" name="qid" value="${qu.getQuizId()}" >
-                        <hr>
+                            <div class="col-lg-6" style="margin-bottom: 10px; padding-right: 15px;"><b>A</b> :  <input type="radio" name="${stt.count}" value="${dpList.getChooseA()}">${dpList.getChooseA()}</div>
+                            <div class="col-lg-6" style="margin-bottom: 10px;"><b>B</b> :  <input type="radio" name="${stt.count}" value="${dpList.getChooseB()}">${dpList.getChooseB()}</div>
+                            <div class="col-lg-6"  style="padding-right: 15px;"><b>C</b> :  <input type="radio" name="${stt.count}" value="${dpList.getChooseC()}">${dpList.getChooseC()}</div>
+                            <div class="col-lg-6"><b>D</b> :  <input type="radio" name="${stt.count}" value="${dpList.getChooseD()}">${dpList.getChooseD()}</div>
+                            <input type="hidden" name="${stt.count}.id" value="${dpList.getQuestionsId()}" >
+                            <input type="hidden" name="qid" value="${qu.getQuizId()}" >
+                        </div> 
+                        .
+                        <hr class="style-one">
                     </c:forEach>
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-6" >

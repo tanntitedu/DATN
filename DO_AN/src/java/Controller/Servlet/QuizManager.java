@@ -168,11 +168,11 @@ public class QuizManager extends HttpServlet {
         int point = 0;
         int quizID = Integer.parseInt(request.getParameter("qid"));
         Quiz quiz = QD.getQuizByID(quizID);
-        float t = 2;
+        int t = quiz.getTotalques();
         float tl;
-        float dtl;
-        float ctl = 0;
-        for (int i = 1; i < 3; i++) {
+        int dtl;
+        int ctl = 0;
+        for (int i = 1; i < 4; i++) {
             String a = Integer.toString(i);
             // para stt.index
             String pp = request.getParameter(a);
@@ -204,10 +204,10 @@ public class QuizManager extends HttpServlet {
         }
         System.out.println(ctl);
         dtl = t - ctl;
-        tl = point / t * 100;
+        tl = (float)point / t * 100;
         System.out.println(point);
         System.out.println(tl);
-        float diem = point / t * 10;
+        float diem = (float)point / t * 10;
         request.setAttribute("diem", diem);
         request.setAttribute("ctl", ctl);
         request.setAttribute("dtl", dtl);
@@ -329,7 +329,7 @@ private void doinfor(HttpServletRequest request, HttpServletResponse response)
         Disciplines discip = DD.get(discipID);
         System.out.println(content);
 
-        Quiz q = new Quiz(4, discip, content, active, isview, null, null);
+        Quiz q = new Quiz(4, discip, content, active, isview, 1, 1);
         if (QD.insertQuiz(q)) {
             List<Quiz> qList = QD.listQuiz();
             request.setAttribute(util.Constants.Q_LIST, qList);

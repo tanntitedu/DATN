@@ -16,6 +16,8 @@ public class Quiz  implements java.io.Serializable {
      private String content;
      private Boolean active;
      private Boolean isview;
+     private int time;
+     private int totalques;
      private Set examses = new HashSet(0);
      private Set questionses = new HashSet(0);
 
@@ -26,15 +28,17 @@ public class Quiz  implements java.io.Serializable {
     public Quiz(int quizId) {
         this.quizId = quizId;
     }
-    public Quiz(int quizId, Disciplines disciplines, String content, Boolean active, Boolean isview, Set examses, Set questionses) {
-       this.quizId = quizId;
-       this.disciplines = disciplines;
-       this.content = content;
-       this.active = active;
-       this.isview = isview;
-       this.examses = examses;
-       this.questionses = questionses;
+
+    public Quiz(int quizId, Disciplines disciplines, String content, Boolean active, Boolean isview, int time, int totalques) {
+        this.quizId = quizId;
+        this.disciplines = disciplines;
+        this.content = content;
+        this.active = active;
+        this.isview = isview;
+        this.time = time;
+        this.totalques = totalques;
     }
+    
    
     public int getQuizId() {
         return this.quizId;
@@ -71,6 +75,23 @@ public class Quiz  implements java.io.Serializable {
     public void setIsview(Boolean isview) {
         this.isview = isview;
     }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public int getTotalques() {
+        return totalques;
+    }
+
+    public void setTotalques(int totalques) {
+        this.totalques = totalques;
+    }
+    
     public Set getExamses() {
         return this.examses;
     }
