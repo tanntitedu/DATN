@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 25, 2014 2:34:06 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.entity.Quiz" table="quiz" catalog="d_a">
+        <id name="quizId" type="int">
+            <column name="quizID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="disciplines" class="model.entity.Disciplines" fetch="select">
+            <column name="disciplinesID" />
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content" length="65535" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="active" />
+        </property>
+        <property name="isview" type="java.lang.Boolean">
+            <column name="isview" />
+        </property>
+        <property name="time" type="int">
+            <column name="time" />
+        </property>
+        <property name="totalques" type="int">
+            <column name="total_ques" />
+        </property>
+        <set name="examses" table="exams" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="quizID" />
+            </key>
+            <one-to-many class="model.entity.Exams" />
+        </set>
+        <set name="questionses" table="questions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="quizID" />
+            </key>
+            <one-to-many class="model.entity.Questions" />
+        </set>
+    </class>
+</hibernate-mapping>
